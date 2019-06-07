@@ -1,29 +1,24 @@
-//Variables: unsignedInteger, CIDRBock
-
 //convert unsigned integer to binary
 const unsignedIntegerToBinary = (unsignedInteger) => {
     for(i = 0, convertedIPString = ''; i < 32; i++){
         convertedIPString +=String(unsignedInteger >>>31), unsignedInteger <<=1    
         }
 
-        console.log(typeof convertedIPString, convertedIPString);                
+        console.log(typeof convertedIPString, convertedIPString, "calling unsignedIntegerToBinary");                
 }  //end
     
 //Log Full Subnet Address
 const logFullSubnetAddress = (subnetMask) => {
     let subnetAddress =''
 
-    for(i = 0; i < subnetMask; i++){
-        subnetAddress += '1'     
-        console.log(subnetAddress, "subnetAddress")
-    } 
+        for(i = 0; i < subnetMask; i++){
+            subnetAddress += '1'     
+        } 
 
-    while (subnetAddress.length <= 31){
-        subnetAddress += 0
-        console.log(subnetAddress, "subnetAddress")
-        console.log(subnetAddress.length, "subnetAddress length")
-        console.log("did I call my function?")
-    }  
+        while (subnetAddress.length <= 31){
+            subnetAddress += 0        
+        }  
+    console.log(typeof subnetAddress, "subnet address")
 }
 
 //Split and convert CIDR block
