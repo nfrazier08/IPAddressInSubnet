@@ -30,9 +30,9 @@ const splitAndConvertCIDRBlock = (cidrBlock) => {
     let networkString = ''
 
     for (let i = 0; i < networkAddress.length; i++) {       
-        let networkInBinary = (((networkString += networkAddress[i]) >>> 0).toString(2));
-
-        console.log(typeof networkInBinary, networkInBinary)       
+        (((networkString += networkAddress[i]) >>> 0).toString(2));
+        console.log("am I getting network address?")
+        console.log(typeof networkString, networkString, "network address")       
     }
     
     //SUBNET MASK
