@@ -6,23 +6,34 @@ const unsignedIntegerToBinary = (unsignedInteger) => {
         convertedIPString +=String(unsignedInteger >>>31), unsignedInteger <<=1    
         }
 
-        console.log(typeof convertedIPString, convertedIPString);
-        //console.log(convertedIPString.length);          
-}//End
+        console.log(typeof convertedIPString, convertedIPString);                
+}  //end
+    
+//Log Full Subnet Address
+const logFullSubnetAddress = (subnetMask) => {
+    let subnetAddress =''
 
-    //console.log("unsigned integer to binary")
-    unsignedIntegerToBinary(0x62D2ED4B)
+    for(i = 0; i < subnetMask; i++){
+        subnetAddress += '1'     
+        console.log(subnetAddress, "subnetAddress")
+    } 
 
-//split and convert CIDR block
-//CIDR Subnet is passed as a string
+    while (subnetAddress.length <= 31){
+        subnetAddress += 0
+        console.log(subnetAddress, "subnetAddress")
+        console.log(subnetAddress.length, "subnetAddress length")
+        console.log("did I call my function?")
+    }  
+}
+
+//Split and convert CIDR block
 const splitAndConvertCIDRBlock = (cidrBlock) => {
-    //split CIDR block into the network address and the subnet mask
-    //This returns an array where I can access the indices
+
+    //split CIDR block into the network address and the subnet mask    
     var splitBlock = cidrBlock.split('/')
     console.log(splitBlock)
 
-    //NETWORK ADDRESS
-    //First split '98.210.237.192' on the .
+    //NETWORK ADDRESS    
     let networkAddress = splitBlock[0].split('.')
     //console.log(networkAddress, "network address")
     
@@ -30,8 +41,7 @@ const splitAndConvertCIDRBlock = (cidrBlock) => {
     let networkString = ''
 
     for (let i = 0; i < networkAddress.length; i++) {       
-        (((networkString += networkAddress[i]) >>> 0).toString(2));
-        console.log("am I getting network address?")
+        (((networkString += networkAddress[i]) >>> 0).toString(2));        
         console.log(typeof networkString, networkString, "network address")       
     }
     
@@ -39,29 +49,12 @@ const splitAndConvertCIDRBlock = (cidrBlock) => {
     let subnetMask = parseInt(splitBlock[1])
     console.log(typeof subnetMask, subnetMask)
     
-    const logFullSubnetAddress = (subnetMask) => {
-        let subnetAddress =''
-
-        for(i = 0; i < subnetMask; i++){
-            subnetAddress += '1'                
-            
-            console.log(subnetAddress, "subnetAddress")
-        } 
-
-        while (subnetAddress.length <= 31){
-
-            subnetAddress += 0
-            console.log(subnetAddress, "subnetAddress")
-            console.log(subnetAddress.length, "subnetAddress length")
-            console.log("did I call my function?")
-        }
-    }
-
     logFullSubnetAddress(subnetMask)        
-}
+} //end
 
-    const ipInSubnetComparison = (unsignedInteger, CIDRBock) => {
-        unsignedIntegerToBinary(unsignedInteger)        
-        splitAndConvertCIDRBlock(CIDRBock)
-    }
+const ipInSubnetComparison = (unsignedInteger, CIDRBock) => {
+    unsignedIntegerToBinary(unsignedInteger)        
+    splitAndConvertCIDRBlock(CIDRBock)
+}
     
+ipInSubnetComparison(0x62D2ED4B, "98.210.237.192/26")
