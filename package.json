@@ -1,0 +1,21 @@
+{
+  "name": "ipaddressinsubnet",
+  "version": "1.0.0",
+  "description": "SRE IP address in subnet HW",
+  "main": "subnettingAssignment.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nfrazier08/IPAddressInSubnet.git"
+  },
+  "author": "Nicole Frazier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nfrazier08/IPAddressInSubnet/issues"
+  },
+  "homepage": "https://github.com/nfrazier08/IPAddressInSubnet#readme"
+}
